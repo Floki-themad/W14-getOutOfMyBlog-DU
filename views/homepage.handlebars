@@ -1,0 +1,26 @@
+
+
+<h2>Welcome to that Blog!</h2>
+
+{{#each blogs as |blog|}}
+  <div>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{blog.name}}</span> 
+                   
+                    <p>{{blog.description}}</p>
+                </div>
+                <div class="card-action teal lighten-2">
+                    <a href="#" id="reply" class="white-text" data-id="{{blog.id}}">Reply</a>
+                    <a class="right-align white-text">posted @ {{format_date this.date_created}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<script src="/js/materialize.js"></script>
+<script src="/js/help.js"></script>

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome {{user.name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a Blog Post:</h3>
+
+    <form class="form new-blog-form">
+      <div class="form-group">
+        <label for="blog-name">blog name:</label>
+        <input class="form-input" type="text" id="blog-name" name="blog-name" id="blog-name" />
+      </div>
+      <div class="form-group">
+        <label for="blog-desc">description:</label>
+        <textarea class="form-input" id="blog-desc" name="blog-desc" id="blog-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="create-new-blog">Create</button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <h3>My Blog Posts:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row">
+      <div class="col s12 m6 blog-list">
+        <div class="card">
+          <div class="card-content">
+            <a class="card-title black-text" href="/blog/{{blog.id}}">{{blog.name}}</a>
+            <p>{{blog.description}}</p>
+          </div>
+          <div class="card-action teal lighten-2">
+            <a href="#" id="delete-blog" class="white-text" data-id="{{blog.id}}">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+<script src="/js/materialize.js"></script>
+
+<script src="./js/userprofile.js"></script>
