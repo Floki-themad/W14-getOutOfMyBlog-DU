@@ -2,10 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our m1 model
-class m1 extends Model {}
+
+class Blog extends Model{}
 
 // create fields/columns for m1 model
-m1.init(
+Blog.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,18 +14,34 @@ m1.init(
       primaryKey: true,
       autoIncrement: true
     },
-    m1_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'm1'
+    modelName: 'blog'
   }
 );
 
-module.exports = m1;
+module.exports = Blog;
