@@ -1,0 +1,17 @@
+
+<div class="row">
+     <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-content">
+                    <a class="card-title black-text" href="/blog/{{this.id}}">{{this.name}}</a>
+                    <p>{{this.description}}</p>
+                </div>
+                <div class="card-action teal lighten-2">
+                    <a href="#" id="reply" class="white-text" data-id="{{this.id}}">Reply</a>
+                    <a class="right-align white-text">posted by {{user.name}} @ {{format_date this.date_created}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
